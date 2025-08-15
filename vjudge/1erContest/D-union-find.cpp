@@ -50,17 +50,21 @@ void unionPadres(int nodeIzq, int nodeDer)
 int main()
 {
     int cases;
-    cin >> cases;
+    scanf("%d\n\n", &cases)
+    // cin >> cases;
     while (cases--)
     {
-        char nroNodosChar;
-        cin >> nroNodosChar;
-        nroNodes = nroNodosChar - 'A' + 1; // 'E' - 'A' => 69 - 65 +1= 5
+        string nroNodosString;
+        getline(cin,nroNodosString);
+        nroNodes = nroNodosString[0] - 'A' + 1; // 'E' - 'A' => 69 - 65 +1= 5
         init();
         int total = nroNodes;
         string arista;
-        while (cin >> arista)
-        { // AB
+        while (true){ // AB
+            getline(cin,arista);
+            if(arista.empty()) {
+                break;
+            }
             int origen, destino;
             origen = arista[0] - 'A';  // 'A' - 'A' = 65 - 65 = 0
             destino = arista[1] - 'A'; // 'B' - 'A' = 66 - 65 = 1
@@ -73,6 +77,9 @@ int main()
             }
         }
         cout<<total<<endl;
+        if(cases!=0) {
+            cout<<endl;
+        }
     }
     return 0;
 }
