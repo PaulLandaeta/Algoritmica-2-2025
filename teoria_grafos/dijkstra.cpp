@@ -34,7 +34,7 @@ void dijkstra(int verticeInicial)
             int pesoVecino = grafo[nodoFinal][i].first;
             //    inf  >                    0 + 60
             // Relajacion 
-            if (distancia[verticeVecino]> distancia[nodoFinal] + pesoVecino )
+            if (distancia[nodoFinal] + pesoVecino < distancia[verticeVecino])
             {
                 distancia[verticeVecino] = distancia[nodoFinal] + pesoVecino;
                 colaPrioridad.insert(make_pair(distancia[verticeVecino], verticeVecino));
